@@ -1,33 +1,31 @@
-import {useEffect, useState} from 'react'
+import { useState} from 'react'
 //import type {City, CitySearchResult, Location, Weather} from "./main.tsx";
-
 import './App.css'
+import useLocation from "./hook.tsx";
+import useWeather from "./hook.tsx";
 
 const [currsearch, setcurrsearch] = useState<String>("Freehold");
 const autocomplete = useAutocomplete(currsearch);
 
 
-(input value = {currsearch}
-onchange = {e => setcurrsearch(e.target.value)}
-placeholder = "Search...")
 fetch('https://api.geoapify.com/v1/geocode/search?text=marlboro,%20nj&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658')
 fetch('https://api.geoapify.com/v1/geocode/search?text=${marlboro%20nj}&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658')
 fetch('https://api.geoapify.com/v1/geocode/autocomplete?text=${marlboro,%20nj}&type=city&limit=10&filter=countrycode%3Aus&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658,')
 
+export default function App() {
+    const { loc, fetchLocation } = useLocation();
+    const [city, setCity] = useState("");
+    const weather = useWeather(loc);
 
-export default function UseWeather() {
-    const [weather, setWeather] = useState<Weather>([]);
-    const [error, setError] = useState<String | null>(null);
-    useEffect((): void => {
-        fetch('https://api.geoapify.com/v1/geocode/search?text=marlboro&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658,')
-            .then(response => response.json())
-            .then(data => console.log(data)).catch(err => console.log(err));
-    })
+    function handleSelect(cityName: string) {
+        setCity(cityName);
+        fetchLocation(cityName);
+    }
+
+    return (
+        <div>
+
+        </div>
+    );
 }
-
-export default function useLocation (SearchedValue: String|null) : [weather|null, string|null]{
-}
-
-export default function autocomplete ()
-
 export default App
