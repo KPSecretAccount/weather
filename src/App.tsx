@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import {useState} from 'react'
 //import type {City, CitySearchResult, Location, Weather} from "./main.tsx";
 import './App.css'
 import useLocation from "./hook.tsx";
