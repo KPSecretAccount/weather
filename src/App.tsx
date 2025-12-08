@@ -1,8 +1,7 @@
 import {useState} from 'react'
 //import type {City, CitySearchResult, Location, Weather} from "./main.tsx";
 import './App.css'
-import useLocation from "./hook.tsx";
-import useWeather from "./hook.tsx";
+import useAutocomplete from "./hook.tsx";
 
 
 
@@ -11,13 +10,17 @@ fetch('https://api.geoapify.com/v1/geocode/search?text=${marlboro%20nj}&lang=en&
 fetch('https://api.geoapify.com/v1/geocode/autocomplete?text=${marlboro,%20nj}&type=city&limit=10&filter=countrycode%3Aus&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658,')
 
 export default function App() {
-    const [currsearch, setcurrsearch] = useState<String>("Freehold");
-    const autocomplete = useAutocomplete(currsearch);
+    //const autocomplete = useAutocomplete(currsearch);
+    const [count, setCount] = useState(0)
+    const [currSearch, setCurrSearch] = useState<string>("Marlboro");
 
     return (
         <div>
 
+            <input value={currSearch}
+                   onChange={e => setCurrSearch(e.target.value)}
+                   placeholder="Type here to search"/>
         </div>
     );
 }
-export default App
+
