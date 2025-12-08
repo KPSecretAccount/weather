@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react'
+
 export default function useAutocomplete(currSearch: string) {
     const [list, setList] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
