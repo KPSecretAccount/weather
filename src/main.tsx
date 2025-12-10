@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    "/: city/: state/: lat/: lon" element {<weather/>}
-  </StrictMode>,
+    <StrictMode>
+      <App />
+    </StrictMode>,
 )
+

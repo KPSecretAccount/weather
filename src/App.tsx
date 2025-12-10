@@ -1,23 +1,108 @@
-import {useState} from 'react'
-//import type {City, CitySearchResult, Location, Weather} from "./main.tsx";
-import './App.css'
-import useAutocomplete from "./hook.tsx";
-
-
-
-
-fetch('https://api.geoapify.com/v1/geocode/search?text=marlboro,%20nj&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658')
-fetch('https://api.geoapify.com/v1/geocode/search?text=${marlboro%20nj}&lang=en&limit=1&type=city&filter=countrycode:us&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658')
-fetch('https://api.geoapify.com/v1/geocode/autocomplete?text=${marlboro,%20nj}&type=city&limit=10&filter=countrycode%3Aus&format=json&apiKey=b8568cb9afc64fad861a69edbddb2658,')
+import { useState } from 'react';
+import './App.css';
+import { useAutocomplete, useLocation, useWeather } from "./hook";
 
 export default function App() {
-    const [count, setCount] = useState(0)
-    const [currSearch, setCurrSearch] = useState<string>("Marlboro");
+    const [currSearch, setCurrSearch] = useState<string>("");
+    const [currPlace, setCurrPlace] = useState<string>("");
+    const autocomplete = useAutocomplete(currSearch);
+    const location = useLocation(currPlace);
+    const weather = useWeather(location ? location.lat : 0, location ? location.lon : 0);
 
     return (
-            <input value={currSearch}
-                   onChange={e => setCurrSearch(e.target.value)}
-                   placeholder="Type here to search"/>
+        <div>
+            <label>
+                <input
+                    value={currSearch}
+                    onChange={(e) => setCurrSearch(e.target.value)}
+                    placeholder="Type here to search"
+                />
+            </label>
+            <div>
+                {autocomplete?.map((auto, index) => (
+                    <div key={index}>
+                        <ul>
+                            <button onClick={() => {
+                                const nm = auto.state ? `${auto.city}, ${auto.state}` : auto.city;
+                                setCurrPlace(nm);
+                                setCurrSearch(nm);
+                            }}>
+                                {auto.state ? `${auto.city}, ${auto.state}` : auto.city} {}
+                            </button>
+                        </ul>
+                    </div>
+                ))}
+                <button onClick={() => console.log("Search clicked")}>Search</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     );
 }
 
