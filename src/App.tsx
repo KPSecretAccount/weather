@@ -22,87 +22,22 @@ export default function App() {
                 {autocomplete?.map((auto, index) => (
                     <div key={index}>
                         <ul>
-                            <button onClick={() => {
-                                const nm = auto.state ? `${auto.city}, ${auto.state}` : auto.city;
-                                setCurrPlace(nm);
-                                setCurrSearch(nm);
-                            }}>
-                                {auto.state ? `${auto.city}, ${auto.state}` : auto.city} {}
+                            <button
+                                onClick={() => {
+                                    setCurrPlace(auto.formatted);
+                                    setCurrSearch(auto.formatted);
+                                }}
+                            >
+                                {auto.formatted}
                             </button>
                         </ul>
                     </div>
                 ))}
+
                 <button onClick={() => console.log("Search clicked")}>Search</button>
             </div>
+
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     );
 }
 
