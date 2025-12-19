@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: emoji;
 }
 
 /* From Uiverse.io by zanina-yassine */
@@ -23,7 +24,7 @@
 }
 
 .container {
-  width: 250px;
+  width: 750px;
   height: 250px;
   position: absolute;
   right: -35px;
@@ -276,7 +277,7 @@
 
 /* From Uiverse.io by JaydipPrajapati1910 */
 .card1 {
-  width: fit-content;
+  width: 1000px;
   height: fit-content;
   border: none;
   border-radius: 10px;
