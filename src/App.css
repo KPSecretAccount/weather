@@ -874,3 +874,17 @@
 .daily-card h4 {
   margin-bottom: 6px;
 }
+
+
+.card9 {
+  background-color: #e5e5f7;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-radial-gradient(
+          circle at 0 0,
+          transparent 0,
+          #e5e5f7 30px
+  ),
+  repeating-linear-gradient(#ffb5b58a, #ffb8b8);
+}

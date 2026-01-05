@@ -126,7 +126,7 @@ export default function App() {
                                         <p>Feels Like: {weather.hourly.apparent_temperature[i]} °F</p>
                                         <p>Humidity: {weather.hourly.relative_humidity_2m[i]} %</p>
                                         <p>Dew Point: {weather.hourly.dew_point_2m[i]} °F</p>
-                                        <p>Precipation Probability: {weather.hourly.precipitation_probability[i]} %</p>
+                                        <p>Precipitation Probability: {weather.hourly.precipitation_probability[i]} %</p>
                                         <p>Precipitation: {weather.hourly.precipitation[i]} in</p>
                                         <p>Visibility: {weather.hourly.visibility[i]} m</p>
                                         <p>UV Index: {weather.hourly.uv_index[i]}</p>
@@ -146,7 +146,7 @@ export default function App() {
             )}
 
             {weather && (
-                <div className="card1">
+                <div className="card9">
                     <h2>7 Day Forecast</h2>
 
                     <div className="daily-cards">
@@ -161,7 +161,7 @@ export default function App() {
                                 <p>Sunset: {formatTime(weather.daily.sunset[i])}</p>
                                 <p>UV Index: {weather.daily.uv_index_max[i]}</p>
                                 <p>Precipitation Sum: {weather.daily.precipitation_sum[i]} in</p>
-                                <p>Precipatoin Hours: {weather.daily.precipitation_hours[i]}</p>
+                                <p>Precipitation Hours: {weather.daily.precipitation_hours[i]}</p>
                                 <p>Precipitation Probability: {weather.daily.precipitation_probability_max[i]} %</p>
                                 <p>Wind Speed: {weather.daily.wind_speed_10m_max[i]} mph</p>
                                 <p>Wind Gusts: {weather.daily.wind_gusts_10m_max[i]} mph</p>
